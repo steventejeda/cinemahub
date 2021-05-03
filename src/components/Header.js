@@ -1,7 +1,6 @@
 import React from 'react'
 import "../styles/Header.css" 
 //Icons
-import TheatersIcon from '@material-ui/icons/Theaters';
 import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';

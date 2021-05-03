@@ -1,5 +1,6 @@
 import './App.css';
-import Header from './components/Header'
+import Header from './components/Header';
+import Nav from './components/Nav';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
     <Header/>
 
     {/* Nav */}
+    <Nav />
 
     {/* Results */}
     </div>

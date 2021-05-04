@@ -1,19 +1,19 @@
-import React from 'react'
-import "../styles/Nav.css"
+import React from 'react';
+import "../styles/Nav.css";
+import Requests from "./Requests";
 
-const Nav = () => {
+const Nav = ({ setSelectedOption }) => {
     return (
        <div className="nav">
-           <h2>Trending</h2>
-           <h2>Top Rated</h2>
-           <h2>Action</h2>
-           <h2>Horror</h2>
-           <h2>Romance</h2>
-           <h2>Mystery</h2>
-           <h2>Sci-Fi</h2>
-           <h2>Western</h2>
-           <h2>Animation</h2>
-           <h2>Movie</h2>
+           <h2 onClick={()=> setSelectedOption(Requests.fetchTrending)}>Trending</h2>
+           <h2 onClick={()=> setSelectedOption(Requests.fetchTopRated)}>Top Rated</h2>
+           <h2 onClick={()=> setSelectedOption(Requests.fetchActionMovies)}>Action</h2>
+           <h2 onClick={()=> setSelectedOption(Requests.fetchHorrorMovies)}>Horror</h2>
+           <h2 onClick={()=> setSelectedOption(Requests.fetchRomanceMovies)}>Romance</h2>
+           <h2 onClick={()=> setSelectedOption(Requests.fetchMystery)}>Mystery</h2>
+           <h2 onClick={()=> setSelectedOption(Requests.fetchWestern)}>Western</h2>
+           <h2 onClick={()=> setSelectedOption(Requests.fetchAnimation)}>Animation</h2>
+          
        </div>
     )
 }

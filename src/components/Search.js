@@ -1,4 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+// import VideoCard from './VideoCard';
+import '../styles/VideoCard.css'
+
 
 const API_KEY = 'c89425fda98c3c3b8d5707c051751162'
 
@@ -33,6 +36,7 @@ const Search = () => {
             onChange={(e) => setQuery(e.target.value)} />
         </form>
         </>
+        
     )
 }
 

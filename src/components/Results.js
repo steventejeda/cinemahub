@@ -23,7 +23,6 @@ function Results({ selectedOption })  {
         {movies.map((movie) => (
             <VideoCard key={movie.id} movie={movie} />
           ))}
-
         </FlipMove>
        
 

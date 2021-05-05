@@ -1,5 +1,7 @@
 import React from 'react'
+import Search from './Search'
 import "../styles/Header.css" 
+
 //Icons
 import HomeIcon from '@material-ui/icons/Home';
 import SearchIcon from '@material-ui/icons/Search';
@@ -19,17 +21,16 @@ const Header = () => {
             </div>
 
             <div className="header__icon">
-                <SearchIcon />
-                <p>Search</p>
-                </div>
-
-            <div className="header__icon">
                 <PersonOutlineIcon />
                 <p>Account</p>
             </div>
-            
+
+            <div className="header__icon">
+                <SearchIcon /> 
+                <p>Search</p>
+                </div>
+                <Search />
             </div>
-            
             <img src="https://bit.ly/3aSCMXJ" alt=""/>
         </div>
     )

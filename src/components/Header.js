@@ -1,11 +1,12 @@
 import React from 'react'
-import Search from './Search'
 import "../styles/Header.css" 
+
 
 //Icons
 import HomeIcon from '@material-ui/icons/Home';
-import SearchIcon from '@material-ui/icons/Search';
+import Link from '@material-ui/core/Link'
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
+import Search from '@material-ui/icons/Search';
 
 
 
@@ -16,20 +17,20 @@ const Header = () => {
 
             <div className="header__icon
             header__icon--active">
-                <HomeIcon />
+                
+                <Link href="/"><HomeIcon /></Link>
                 <p>Home</p>
             </div>
 
             <div className="header__icon">
-                <PersonOutlineIcon />
+                <Link href="/Signup"><PersonOutlineIcon /></Link>
                 <p>Account</p>
             </div>
 
             <div className="header__icon">
-                <SearchIcon /> 
+                <Link href="/search"><Search /></Link>
                 <p>Search</p>
-                </div>
-                <Search />
+            </div>
             </div>
             <img src="https://bit.ly/3aSCMXJ" alt=""/>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import Signin from './Signin';
+import"../styles/Signup.css"
 
 
 //Material UI Components

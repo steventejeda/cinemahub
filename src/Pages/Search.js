@@ -48,7 +48,7 @@ const Search = () => {
       <input 
        className="searchTerm"
        type="text" 
-       placeholder="Search your favorite movie here! "
+       placeholder="Search for your favorite movie here! "
        value={searchTerm}
        onChange={handleOnChange}
        />

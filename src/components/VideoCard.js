@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react'
-import { Link } from 'react-router-dom'
 import "../styles/VideoCard.css"
 import TextTruncate from "react-text-truncate";
 import { ThumbUpSharp } from "@material-ui/icons"
@@ -8,12 +7,6 @@ const base_url = "https://image.tmdb.org/t/p/original/";
 
 
 const VideoCard = forwardRef(({ movie }, ref) =>  {
-     function movieDetail () { 
-        //  console.log("Movie Details")
-        //  console.log(movie.title || movie.original_name)
-        const detailUrl = "https://www.themoviedb.org/movie/" + movie.id
-        window.location.href = detailUrl
-     }
 
     return (
       
@@ -39,7 +32,7 @@ const VideoCard = forwardRef(({ movie }, ref) =>  {
             {movie.release_date || movie.first_air_date} • 
             <ThumbUpSharp />{" "}
             {movie.vote_count}</p>
-            <input type="button" onClick={movieDetail} value="Details" />
+            
             
        </div>
   

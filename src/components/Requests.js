@@ -13,5 +13,3 @@ export default {
     fetchAnimation: `/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=16`,
     fetchTV: `/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&with_genres=10770`,
 }
-
-

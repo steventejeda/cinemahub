@@ -2,15 +2,16 @@ import React, { forwardRef } from 'react'
 import "../styles/VideoCard.css"
 import TextTruncate from "react-text-truncate";
 import { ThumbUpSharp } from "@material-ui/icons"
+import ContentModal from './ContentModal';
 
 const base_url = "https://image.tmdb.org/t/p/original/";
 
 
-const VideoCard = forwardRef(({ movie }, ref) =>  {
+const VideoCard = forwardRef(({ movie, media_type, id}, ref) =>  {
 
     return (
-      
-       <div ref={ref} className="videoCard">
+      <ContentModal movie={movie}>
+        <div ref={ref} className="videoCard">
            {/* If the movie does not have a default photo, find another alternative that fits that movie. */}
           
            <img 
@@ -32,9 +33,11 @@ const VideoCard = forwardRef(({ movie }, ref) =>  {
             {movie.release_date || movie.first_air_date} • 
             <ThumbUpSharp />{" "}
             {movie.vote_count}</p>
+
+        </div>
+        </ContentModal>
             
-            
-       </div>
+    
   
     )
 })

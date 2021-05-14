@@ -1,14 +1,10 @@
-"use strict";
+/** Database setup for cinemahub. */
 
-/** Database setup for CinemaHub. */
+const { Client } = require('pg');
+const { DB_URI } = require('./config');
 
-const { Client } = require("pg");
-const { getDatabaseUri } = require("./config");
+const client = new Client(DB_URI);
 
-const db = new Client({
-  connectionString: getDatabaseUri(),
-});
+client.connect();
 
-db.connect();
-
-module.exports = db;
+module.exports = client;

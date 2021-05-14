@@ -23,7 +23,7 @@ const Header = () => {
             </div>
 
             <div className="header__icon">
-                <Link href="/Signup"><PersonOutlineIcon /></Link>
+                <Link href="/register"><PersonOutlineIcon /></Link>
                 <p>Account</p>
             </div>
 

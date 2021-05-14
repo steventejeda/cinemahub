@@ -16,6 +16,7 @@ import {
   unavailable, 
   unavailableLandscape,
 } from "./config"
+import { DiscussionEmbed } from 'disqus-react';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,9 +26,9 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'center',
   },
   paper: {
-    width: "90%",
-    height: "80%",
-    backgroundColor: "gray",
+    width: "80%",
+    height: "100%",
+    backgroundColor: "#3d3d3d",
     border: '2px solid #000',
     borderRadius: 10,
     color: white,
@@ -145,13 +146,30 @@ export default function ContentModal({children, movie}) {
                   >
                     Watch the Trailer
                   </Button>
+                  <div>
+            <DiscussionEmbed
+              shortname="cinemahub"
+              config= { 
+                {
+                url: `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`,
+                identifier: 0,
+                title: "CinemaHub Comments",
+                language: 'english'
+              }
+            }
+              />
+            </div>
 
-                  </div>
+                  </div>     
+                             
 
             </div>
+        
           </div>
         </Fade>
+        
       </Modal>
+     
     </div>
   );
 }

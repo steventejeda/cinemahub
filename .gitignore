@@ -21,6 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-/Users/steventejeda/Desktop/movie/cinemahub/backend/node_modules
+
 /Users/steventejeda/Desktop/movie/cinemahub/node_modules
+
 /Users/steventejeda/Desktop/movie/cinemahub/.env
+
+/Users/steventejeda/Desktop/movie/cinemahub/backend/node_modules

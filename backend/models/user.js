@@ -1,83 +1,68 @@
-"use strict";
-
-const db = require("../db");
-const bcrypt = require("bcrypt");
-const {
-  BadRequestError,
-  UnauthorizedError,
-} = require("../expressError");
-
-const { BCRYPT_WORK_FACTOR } = require("../config.js");
-
-/** Related functions for users. */
+const bcrypt = require('bcrypt');
+const db = require('../db');
+const ExpressError = require('../helpers/expressError');
+const { BCRYPT_WORK_FACTOR } = require("../config");
 
 class User {
-  /** authenticate user with username, password.
-   *
-   * Throws UnauthorizedError is user not found or wrong password.
-   **/
 
-  static async authenticate(username, password) {
-    // try to find the user first
-    const result = await db.query(
-          `SELECT username,
-                  password
-           FROM users
-           WHERE username = $1`,
-        [username],
-    );
+    /** Register user with data. Returns new user data. */
 
-    const user = result.rows[0];
+    static async register({ username, password }) {
+        const duplicateCheck = await db.query(
+            `SELECT username 
+        FROM users 
+        WHERE username = $1`, [username]
+        );
 
-    if (user) {
-      // compare hashed password to a new hash from password
-      const isValid = await bcrypt.compare(password, user.password);
-      if (isValid === true) {
-        delete user.password;
-        return user;
-      }
+        if (duplicateCheck.rows[0]) {
+            throw new ExpressError(
+                `There already exists a user with username '${username}'`,
+                400
+            );
+        }
+
+        const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
+
+        const result = await db.query(
+            `INSERT INTO users 
+          (username, password) 
+        VALUES ($1, $2) 
+        RETURNING username, password` [
+                username,
+                hashedPassword
+            ]
+        );
+
+        return result.rows[0];
     }
 
-    throw new UnauthorizedError("Invalid username/password");
-  }
 
-//   Register user with data.
-  
+    /** Is this username + password combo correct?
+     *
+     * Return all user data if true, throws error if invalid
+     *
+     * */
 
-  static async register(
-      { username, password}) {
-    const duplicateCheck = await db.query(
-          `SELECT username
-           FROM users
-           WHERE username = $1`,
-        [username],
-    );
+    static async authenticate(username, password) {
+        const result = await db.query(
+            `SELECT username,
+                password
+            FROM users 
+            WHERE username = $1`, [username]
+        );
 
-    if (duplicateCheck.rows[0]) {
-      throw new BadRequestError(`Duplicate username: ${username}`);
+        const user = result.rows[0];
+
+        if (user && (await bcrypt.compare(password, user.password))) {
+            return user;
+        } else {
+            throw new ExpressError('Cannot authenticate', 401);
+        }
     }
 
-    const hashedPassword = await bcrypt.hash(password, BCRYPT_WORK_FACTOR);
 
-    const result = await db.query(
-          `INSERT INTO users
-           (username,
-            password)
-           VALUES ($1, $2)
-           RETURNING username"`,
-        [
-          username,
-          hashedPassword
-        ],
-    );
-
-    const user = result.rows[0];
-
-    return user;
-  }
 
 
 }
-
 
 module.exports = User;

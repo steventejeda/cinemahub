@@ -1,24 +1,35 @@
 import React from 'react';
 import './App.css';
-import {Route, BrowserRouter as Router} from "react-router-dom";
-import Home from "./Pages/Home";
-import Signin from "./Pages/Signin";
-import Signup from "./Pages/Signup";
-import Search from "./Pages/Search";
+import {BrowserRouter } from "react-router-dom";
+import Routes from "./routes"
+import UserContext from "./components/UserContext";
+import useLocalStorageState from "./hooks/useLocalStorageState";
 
 
 
 function App() {
 
+
+	const [token, setToken] = useLocalStorageState("token", "");
+	const [currUser, setCurrUser] = useLocalStorageState("username", "");
+
+
   return (
     <div>
 
-    <Router>
-      <Route path="/" exact component={Home} />
-      <Route path="/signup" component={Signup} />
-      <Route path="/signin" component={Signin} />
-      <Route path="/search" component={Search} />
-    </Router>
+    <BrowserRouter>
+    <UserContext.Provider
+					value={{
+						token,
+						setToken,
+						currUser,
+						setCurrUser,
+		
+					}}
+				>
+    <Routes />
+    </UserContext.Provider>
+    </BrowserRouter>
     
     </div>
 

@@ -55,7 +55,7 @@ const UserRegisterForm = () => {
 					<Col sm={5}>
 						<Jumbotron>
 							<small className="text-danger">{message}</small>
-							<Form onSubmit={handleSubmit}>
+							<Form onSubmit={handleSubmit} action="/" method="POST">
 								<Form.Group controlId="registerUserName">
 									<Form.Control
 										type="text"

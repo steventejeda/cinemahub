@@ -1,7 +1,6 @@
-
 import { useState } from "react";
 import { Comment } from "use-comments";
-import { Box, Button, Label, Input, Textarea, jsx } from "theme-ui";
+import { Box, Button, Label, Input, Textarea} from "theme-ui";
 
 export interface AddCommentProps {
   onSubmit: (comment: Pick<Comment, "author" | "content">) => void;
@@ -33,7 +32,7 @@ export const AddComment = ({ onSubmit }: AddCommentProps) => {
         name="comment"
         id="comment"
         rows={2}
-        placeholder="Tell me what you think 😊"
+        placeholder="Share your thoughts about the movie!"
         value={comment}
         onChange={e => setComment(e.target.value)}
         sx={{ mb: 3, fontFamily: "body" }}

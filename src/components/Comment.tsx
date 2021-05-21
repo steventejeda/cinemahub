@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { jsx, Container, BaseStyles, ThemeProvider, Button } from "theme-ui";
+import {Container, BaseStyles, ThemeProvider, Button } from "theme-ui";
 
 import { useComments } from "use-comments";
 import { formatDate, formatStatus } from "./utils";

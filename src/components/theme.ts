@@ -1,8 +1,9 @@
+/** @jsxImportSource theme-ui */
 import { funk } from "@theme-ui/presets";
 import { Theme, merge } from "theme-ui";
 import { alpha } from "@theme-ui/color";
 
-const theme: Theme = merge(funk as Theme, {
+const theme: Theme = merge (funk as Theme, {
   initialColorModeName: "light",
   useColorSchemeMediaQuery: true,
   sizes: {
@@ -38,8 +39,8 @@ const theme: Theme = merge(funk as Theme, {
         "> p": {
           fontWeight: "200",
           paddingLeft: "5px"
-        }
-      }
+        },
+      },
     },
     textarea: {
       fontFamily: "body"
@@ -52,7 +53,7 @@ const theme: Theme = merge(funk as Theme, {
       my: 2,
       width: "70ch",
       maxWidth: "100%"
-    }
+    },
   },
   buttons: {
     primary: {
@@ -67,15 +68,15 @@ const theme: Theme = merge(funk as Theme, {
         color: "background",
         ":hover, :focus": {
           textDecoration: "none"
-        }
-      }
-    }
+        },
+      },
+    },
   },
   messages: {
     primary: {
       backgroundColor: alpha("secondary", 0.2)
-    }
-  }
+    },
+  },
 });
 
 export default theme;

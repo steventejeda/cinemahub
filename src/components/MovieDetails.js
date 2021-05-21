@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
-import { white } from 'material-ui/styles/colors';
 import axios from 'axios'
 import "../styles/ContentModal.css"
 
@@ -31,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#3d3d3d",
     border: '2px solid #000',
     borderRadius: 10,
-    color: white,
+    color: "#fff",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(1, 1, 3),
   },

@@ -9,14 +9,14 @@ import "../styles/ContentModal.css"
 
 import { Button } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
-import Carousel from "./Carousel";
+import Carousel from "./Actors";
+import Comment from "./Comment";
 
 import { 
   img_500, 
   unavailable, 
   unavailableLandscape,
 } from "./config"
-import { DiscussionEmbed } from 'disqus-react';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -147,21 +147,11 @@ export default function ContentModal({children, movie}) {
                     Watch the Trailer
                   </Button>
                   <div>
-            <DiscussionEmbed
-              shortname="cinemahub"
-              config= { 
-                {
-                url: `https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`,
-                identifier: 0,
-                title: "CinemaHub Comments",
-                language: 'english'
-              }
-            }
-              />
+                  <Comment />
+                  
             </div>
-
                   </div>     
-                             
+          
 
             </div>
         

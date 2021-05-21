@@ -5,7 +5,7 @@
 require("dotenv").config();
 require("colors");
 
-const SECRET_KEY = process.env.SECRET_KEY;
+const SECRET_KEY = "secret-dev";
 
 
 
@@ -27,3 +27,10 @@ module.exports = {
   getDatabaseUri,
   SECRET_KEY
 };
+
+
+// if (process.env.NODE_ENV === 'production') {
+//   module.exports = require('./prod');
+// } else {
+//   module.exports = require('./dev');
+// }

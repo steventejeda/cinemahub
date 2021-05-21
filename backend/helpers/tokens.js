@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 
 /** return signed JWT from user data. */
 
-const SECRET_KEY = process.env.SECRET_KEY
+const SECRET_KEY = "secret-dev"
 
 function createToken(user) {
 
@@ -12,7 +12,7 @@ function createToken(user) {
    
   };
 
-  return jwt.sign(payload);
+  return jwt.sign(payload, SECRET_KEY);
 }
 
 module.exports = { createToken, SECRET_KEY };

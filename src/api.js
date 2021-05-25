@@ -47,6 +47,14 @@ class CinemaHubApi {
 		return res.token;
 	}
 
+		/* Get information on a particular user */
+
+		static async getUserInfo(username, token) {
+			CinemaApi.token = token;
+			let res = await this.request(`users/${username}`);
+			return res;
+		}
+
 
 }
 

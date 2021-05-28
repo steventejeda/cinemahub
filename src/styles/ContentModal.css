@@ -21,14 +21,12 @@
     height: 100%;
     width: 100%;
     overflow-y: scroll;
-    /* scrollbar-width: none; */
+    scrollbar-width: none;
 }
 
-
-/* 
 .ContentModal::-webkit-scrollbar {
     display: none;
-} */
+}
 
 .ContentModal__about {
     padding: 10px;
@@ -61,10 +59,9 @@
     text-align: justify;
 }
 
-
-/* .ContentModal__description::-webkit-scrollbar {
+.ContentModal__description::-webkit-scrollbar {
     display: none;
-} */
+}
 
 @media (min-width: 835px) {
     .ContentModal__landscape {

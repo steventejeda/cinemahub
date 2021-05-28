@@ -1,4 +1,15 @@
  .comment {
      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
      color: black;
+     height: 350px;
+     overflow: auto;
+     /* Firefox */
+ }
+ 
+ .comment::-webkit-scrollbar {
+     display: none;
+ }
+ 
+ h3 {
+     color: white;
  }

@@ -1,4 +1,4 @@
-import React from "react";
+
 import "../styles/Comment.css"
 
 import { useComments } from "use-comments";
@@ -45,18 +45,18 @@ const formatStatus = status => {
 };
 
 const Comment = ({ postId }) => {
-  const { comments, addComment, count, loading } = useComments(
-    "https://cinemahub.herokuapp.com/v1/graphql",
-    postId
+  const { comments, addComment, count, loading} = useComments(
+    'https://cinemahub-data.herokuapp.com/v1/graphql', postId
   );
 
   return (
     <div className="comment">
-    <section className="w-full max-w-xs p-4">
+    <section className="w-full max-w-2xl p-4">
       <AddComment onSubmit={addComment} />
       <h3 className="font-bold text-xm">
         {count === 1 ? "1 comment" : `${count} comments`}
       </h3>
+      
       {loading ? (
         "Loading..."
       ) : (
@@ -64,7 +64,7 @@ const Comment = ({ postId }) => {
           {comments.map(({ author, content, created_at, status }) => (
             <article
               key={created_at}
-              className="max-w-sm bg-white rounded overflow-hidden shadow-lg my-6"
+              className="bg-white rounded overflow-hidden shadow-lg my-6"
             >
               <div className="px-6 py-4">
                 <div className="font-bold text-xm mb-2">
@@ -81,5 +81,6 @@ const Comment = ({ postId }) => {
     </div>
   );
 };
+
 
 export default Comment

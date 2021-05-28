@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   paper: {
     width: "80%",
     height: "100%",
-    backgroundColor: "#3d3d3d",
+    backgroundColor: "#0a0a0acf",
     border: '2px solid #000',
     borderRadius: 10,
     color: "#fff",
@@ -146,7 +146,7 @@ export default function ContentModal({children, movie}) {
                     Watch the Trailer
                   </Button>
                   <div>
-                  <Comment />
+                  <Comment postId="comment-post"/>
                   
             </div>
                   </div>     

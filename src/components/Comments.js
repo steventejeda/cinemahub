@@ -4,6 +4,8 @@ import "../styles/Comment.css"
 import { useComments } from "use-comments";
 import { AddComment } from "./AddComment";
 
+
+
 const formatDate = dateStr => {
   const date = new Date(dateStr);
   const seconds = Math.floor((new Date() - date) / 1000);
@@ -44,10 +46,11 @@ const formatStatus = status => {
   }
 };
 
-const Comment = ({ postId }) => {
-  const { comments, addComment, count, loading} = useComments(
+const Comments = ({ postId }) => {
+  const { comments, addComment, count, loading, refetch} = useComments(
     'https://cinemahub-data.herokuapp.com/v1/graphql', postId
   );
+  
 
   return (
     <div className="comment">
@@ -71,6 +74,7 @@ const Comment = ({ postId }) => {
                   {author} ・ {formatDate(created_at)}{" "}
                   {status && `・ ${formatStatus(status)}`}
                 </div>
+                <p className="text-gray-700 text-base">{refetch}</p>
                 <p className="text-gray-700 text-base">{content}</p>
               </div>
             </article>
@@ -83,4 +87,4 @@ const Comment = ({ postId }) => {
 };
 
 
-export default Comment
+export default Comments

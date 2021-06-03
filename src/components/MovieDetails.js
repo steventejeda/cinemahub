@@ -9,7 +9,7 @@ import "../styles/ContentModal.css"
 import { Button } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import Carousel from "./Actors";
-import Comment from "./Comment";
+import Comments from "./Comments";
 
 import { 
   img_500, 
@@ -146,7 +146,7 @@ export default function ContentModal({children, movie}) {
                     Watch the Trailer
                   </Button>
                   <div>
-                  <Comment postId="comment-post"/>
+                  <Comments />
                   
             </div>
                   </div>     

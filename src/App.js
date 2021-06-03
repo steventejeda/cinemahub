@@ -4,6 +4,7 @@ import {BrowserRouter } from "react-router-dom";
 import Routes from "./routes"
 import UserContext from "./UserContext";
 import useLocalStorageState from "./hooks/useLocalStorageState";
+import CommentContextProvider from './contexts/CommentContext'
 
 
 
@@ -18,6 +19,7 @@ function App() {
     <div>
 
     <BrowserRouter>
+    <CommentContextProvider>
     <UserContext.Provider
 					value={{
 						token,
@@ -28,7 +30,9 @@ function App() {
 					}}
 				>
     <Routes />
+    
     </UserContext.Provider>
+    </CommentContextProvider>
     </BrowserRouter>
     
     </div>

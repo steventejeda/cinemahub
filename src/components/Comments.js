@@ -48,7 +48,7 @@ const formatStatus = status => {
 
 const Comments = ({ postId }) => {
   const { comments, addComment, count, loading, refetch} = useComments(
-    'https://cinemahub-data.herokuapp.com/v1/graphql', postId
+    'https://data-cinema.herokuapp.com/v1/graphql', postId
   );
   
 

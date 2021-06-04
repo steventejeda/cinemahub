@@ -1,21 +1,23 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import useLocalStorageState from "../hooks/useLocalStorageState";
 import "../styles/AddComment.css"
-import CommentContext from "../contexts/CommentContext"
 
 
 export const AddComment = ({ onSubmit }) => {
-const { dispatch } = useContext(CommentContext)
 const [comment, setComment] = useState("");
 const [currUser, setCurrUser] = useLocalStorageState("username", "");
-const handleSubmit = (e) => { 
-      e.preventDefault();
-      dispatch({type: 'ADD_COMMENT', comment: {
-        username, content
-      }});
-      setComment('');
-      setCurrUser();
-}
+
+
+// mutation AddNewComment($postId: String!, $author: String!, $content: String!) {
+//   insert_comments_one(object: {author: $author, content: $content, post_id: $postId}) {
+//     post_id
+//     author
+//     content
+//     created_at
+//     hidden
+//   }
+// }
+
 
   return (
     <div className="w-full max-w-full">
@@ -23,7 +25,7 @@ const handleSubmit = (e) => {
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={e => {
           e.preventDefault();
-          onSubmit(handleSubmit);
+          onSubmit({ content: comment, author: currUser, post_id: "" });
         }}
       >
         <div className="mb-4">

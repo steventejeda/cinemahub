@@ -17,9 +17,7 @@ function App() {
 
   return (
     <div>
-
-    <BrowserRouter>
-    <CommentContextProvider>
+    <BrowserRouter>  
     <UserContext.Provider
 					value={{
 						token,
@@ -30,14 +28,9 @@ function App() {
 					}}
 				>
     <Routes />
-    
     </UserContext.Provider>
-    </CommentContextProvider>
     </BrowserRouter>
-    
     </div>
-
-
   );
 }
 

@@ -10,6 +10,7 @@ import { Button } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import Carousel from "./Actors";
 import Comments from "./Comments";
+import CommentContextProvider from "../contexts/CommentContext"
 
 import { 
   img_500, 
@@ -146,7 +147,9 @@ export default function ContentModal({children, movie}) {
                     Watch the Trailer
                   </Button>
                   <div>
+                  <CommentContextProvider>
                   <Comments />
+                  </CommentContextProvider>
                   
             </div>
                   </div>     

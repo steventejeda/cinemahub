@@ -1,6 +1,6 @@
 # CinemaHub
 
-Demo: 
+Demo: https://cinemahub.netlify.app/
 
 
 # Overview

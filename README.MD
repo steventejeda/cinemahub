@@ -12,4 +12,4 @@ It features a search function to search for your favorite movie, the user can cl
 CinemaHub features user authentication. The user can register and express their thoughts about a particular movie that can spark up a conversation.
 
 
-Here is a live demo: 
+Here is a live demo: https://cinemahub.netlify.app/
